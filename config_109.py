@@ -67,6 +67,8 @@ def final_call():
     def listar_arquivos(only_enc=False):
         files = []
         for p in BASE_DIR.rglob("*"):
+            if ".git" in p.parts:
+                continue
             if not p.is_file():
                 continue
             if p.name in EXCLUDE:
